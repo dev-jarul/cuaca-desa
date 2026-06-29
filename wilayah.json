@@ -1,0 +1,55 @@
+{
+  "Bangkalan (Madura)": ["Bangkalan", "Kamal", "Blega", "Arosbaya", "Klampis", "Sepulu", "Tanjungbumi"],
+  "Banyuwangi": ["Banyuwangi", "Kalibaru", "Rogojampi", "Muncar", "Genteng", "Wongsorejo", "Pesanggaran", "Glenmore"],
+  "Blitar (Kabupaten)": ["Kanigoro", "Wlingi", "Sutojayan", "Garum", "Nglegok", "Gandusari", "Kademangan"],
+  "Blitar (Kota)": ["Kepanjenkidul", "Sananwetan", "Sukorejo"],
+  "Bojonegoro": ["Bojonegoro", "Kapas", "Dander", "Kalitidu", "Baureno", "Sumberejo", "Padangan"],
+  "Bondowoso": ["Bondowoso", "Maesan", "Tamanan", "Wringin", "Sukosari", "Prajekan", "Cermee"],
+  "Gresik": ["Gresik", "Kebomas", "Manyar", "Driyorejo", "Menganti", "Sidayu", "Cerme", "Sangkapura (Bawean)"],
+  "Jember": ["Kaliwates", "Patrang", "Sumbersari", "Ambulu", "Balung", "Rambipuji", "Tanggul", "Sukorambi"],
+  "Jombang": ["Jombang", "Ploso", "Peterongan", "Mojoagung", "Diwek", "Tembelang", "Ngoro"],
+  "Kediri (Kabupaten)": ["Pare", "Ngasem", "Ngadiluwih", "Mojo", "Wates", "Kandangan", "Gampengrejo"],
+  "Kediri (Kota)": ["Kota", "Mojoroto", "Pesantren"],
+  "Lamongan": ["Lamongan", "Babot", "Paciran", "Sekaran", "Sukodadi", "Mantup", "Karanggeneng"],
+  "Lumajang": ["Lumajang", "Pasrujambe", "Senduro", "Yosowilangun", "Pronojiwo", "Candipuro", "Tempeh"],
+  "Madiun (Kabupaten)": ["Mejayan", "Caruban", "Dolopo", "Wungu", "Dagangan", "Saradan", "Balerejo"],
+  "Madiun (Kota)": ["Kartoharjo", "Manguharjo", "Taman"],
+  "Magetan": ["Magetan", "Plaosan", "Maospati", "Takeran", "Parang", "Kawedanan", "Sukomoro"],
+  "Malang (Kabupaten)": [
+    "Ampelgading", "Bantur", "Buluwangi", "Dampit", "Dau", "Donomulyo", "Gedangan", "Gondanglegi", 
+    "Jabung", "Kalenipare", "Karangploso", "Kasembon", "Kepanjen", "Kromengan", "Lawang", "Ngajum", 
+    "Ngantang", "Pagak", "Pagelaran", "Pakis", "Pakisaji", "Poncokusumo", "Pujon", "Singosari", 
+    "Sumbermanjing Wetan", "Sumberpucung", "Tajinan", "Tirtoyudo", "Tumpang", "Turen", "Wajak", "Wonosari"
+  ],
+  "Malang (Kota)": ["Blimbing", "Kedungkandang", "Klojen", "Lowokwaru", "Sukun"],
+  "Batu (Kota)": ["Batu", "Bumiaji", "Junrejo"],
+  "Mojokerto (Kabupaten)": [
+    "Bangsal", "Dawarblandong", "Dlanggu", "Gedeg", "Gondang", "Jatirejo", "Jetis", "Kutorejo", 
+    "Mojoanyar", "Mojosari", "Ngoro", "Pacet", "Puri", "Sooko", "Trawas", "Trowulan", "Kemlagi", "Maju"
+  ],
+  "Mojokerto (Kota)": ["Magersari", "Prajurit Kulon", "Krangan"],
+  "Nganjuk": ["Nganjuk", "Kertosono", "Loceret", "Berbek", "Tanjunganom", "Pace", "Sawahan"],
+  "Ngawi": ["Ngawi", "Paron", "Mantingan", "Jogorogo", "Sine", "Geneng", "Walikukun"],
+  "Pacitan": ["Pacitan", "Punung", "Ngadirojo", "Tulakan", "Arjosari", "Nawangan", "Tegalombo"],
+  "Pamekasan (Madura)": ["Pamekasan", "Pademawu", "Tlanakan", "Galis", "Pasean", "Warwar", "Palengaan"],
+  "Pasuruan (Kabupaten)": [
+    "Bangil", "Beji", "Gempol", "Gondangwetan", "Grati", "Kejayan", "Kraton", "Lekok", 
+    "Lumbang", "Nguling", "Pandaan", "Pasrepan", "Pohjentrek", "Prigen", "Purwosari", "Purwodadi", 
+    "Rejoso", "Rembang", "Sukorejo", "Tosari", "Tutur", "Winongan", "Wonorejo"
+  ],
+  "Pasuruan (Kota)": ["Bugulkidul", "Gadingrejo", "Panggungrejo", "Purworejo"],
+  "Ponorogo": ["Ponorogo", "Babadan", "Kauman", "Slahung", "Pulung", "Ngrayun", "Siman"],
+  "Probolinggo (Kabupaten)": ["Kraksaan", "Dringu", "Sukapura (Bromo)", "Paiton", "Leces", "Tongas", "Gending"],
+  "Probolinggo (Kota)": ["Kanigaran", "Mayangan", "Kadek", "Wonoasih", "Kedopok"],
+  "Sampang (Madura)": ["Sampang", "Torjun", "Camplong", "Ketapang", "Banyuates", "Omben"],
+  "Sidoarjo": [
+    "Balongbendo", "Buduran", "Candi", "Gedangan", "Jabon", "Krembung", "Krian", "Malingping", 
+    "Porong", "Prambon", "Sedati", "Sidoarjo", "Sukodono", "Taman", "Tanggulangin", "Tarik", "Tulangan", "Waru"
+  ],
+  "Situbondo": ["Situbondo", "Panarukan", "Besuki", "Asembagus", "Banyuputih", "Kendit"],
+  "Sumenep (Madura)": ["Sumenep", "Kalianget", "Bluto", "Ambunten", "Kangean", "Masalembu", "Pragaan"],
+  "Surabaya (Kota)": ["Wonokromo", "Gubeng", "Tegalsari", "Rungkut", "Kenjeran", "Tandes", "Sawahan", "Benowo"],
+  "Trenggalek": ["Trenggalek", "Pogalan", "Karangan", "Watulimo", "Prigi", "Dongko", "Panggul"],
+  "Tuban": ["Tuban", "Jatirogo", "Palang", "Plumpang", "Rengel", "Soko", "Bancar"],
+  "Tulungagung": ["Tulungagung", "Kedungwaru", "Ngunut", "Boyolangu", "Kauman", "Pagerwojo", "Besuki"]
+}
