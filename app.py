@@ -125,7 +125,7 @@ with st.expander("🔍 Atau Cari Wilayah Secara Manual (Menggunakan Data wilayah
     if st.button("Pantau Wilayah Manual Ini"):
         koordinat_manual = cari_koordinat_otomatis(kab_pilih, kec_pilih)
         if koordinat_manual["sukses"]:
-            # Update URL parameter dengan gaya modern standar Cloud 2026
+            # Update URL parameter dengan gaya modern standar Cloud
             st.query_params["lat"] = str(koordinat_manual["lat"])
             st.query_params["lon"] = str(koordinat_manual["lon"])
             st.rerun()
@@ -198,8 +198,19 @@ if info_cuaca["sukses"]:
     url_radar = f"https://www.rainviewer.com/map.html?loc={latitude},{longitude},12&oColor=1&tLoop=1&ext=0&cb=1&v=1&sm=1&sn=1"
     st.components.v1.html(f'<iframe src="{url_radar}" width="100%" height="450" frameborder="0" style="border:0; border-radius:12px;"></iframe>', height=460)
     
+    # 🎨 PENJELASAN WARNA RADAR UNTUK WARGA DESA
+    st.markdown("---")
+    st.markdown("### 🎨 Panduan Membaca Warna Awan & Radar Hujan")
     st.markdown("""
-    * **Cara Baca Radar:** Tekan tombol ▶️ (Play) di dalam peta. 🟦/🟩 = Hujan ringan/sedang. 🟨/🟥 = **Hujan lebat berpotensi badai petir.**
+    | Warna di Peta | Tingkat Intensitas Hujan | Peringatan & Dampak bagi Lapangan |
+    | :--- | :--- | :--- |
+    | **🟦 Biru Laut** | Gerimis / Hujan Sangat Ringan | Cuaca mulai basah, jemuran komoditas sebaiknya dipantau. |
+    | **🟩 Hijau** | Hujan Ringan - Sedang | Mulai terjadi hujan merata. Pekerjaan luar ruangan bisa tertunda. |
+    | **🟨 Kuning** | Hujan Lebat / Deras | Potensi air tergenang di sawah. Amankan semen dan hasil panen! |
+    | **🟥 Merah** | Hujan Sangat Lebat | **Bahaya!** Pandangan mata terbatas, waspada banjir luapan saluran. |
+    | **🟪 Ungu / Merah Tua** | Hujan Ekstrem & Badai | **Darurat!** Segera cari perlindungan kokoh, rawan petir dan angin kencang. |
     """)
+    st.caption("💡 *Petunjuk: Tekan tombol ▶️ (Play) di pojok bawah peta radar untuk melihat ke mana arah pergerakan awan hujan dalam 1 jam ke depan.*")
+    
 else:
     st.error("Gagal memuat informasi cuaca satelit.")
