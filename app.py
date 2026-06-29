@@ -3,7 +3,7 @@ import requests
 import json
 import os
 
-# 1. KONFIGURASI HALAMAN
+# 1. KONFIGURASI HALAMAN MODERN
 st.set_page_config(
     page_title="Portal Cuaca Desa Mandiri Jatim", 
     page_icon="⛈️", 
@@ -81,13 +81,13 @@ def ambil_data_open_meteo(lat, lon):
     except:
         return {"sukses": False, "pesan": "Gagal kontak satelit."}
 
-# 4. METODE PEMANTAUAN (GPS VS MANUAL)
+# 4. METODE PEMANTAUAN DENGAN KODE MODERN CLOUD
 st.subheader("📍 Metode Pemantauan")
 
-# Membaca URL parameter untuk Streamlit lama
-params = st.experimental_get_query_params()
-gps_lat = params.get("lat")[0] if params.get("lat") else None
-gps_lon = params.get("lon")[0] if params.get("lon") else None
+# Menggunakan st.query_params standar modern (menggantikan fungsi lama yang error)
+params = st.query_params
+gps_lat = params.get("lat")
+gps_lon = params.get("lon")
 
 # TOMBOL TRIGGER GPS
 html_tombol_gps = """
@@ -123,14 +123,12 @@ with st.expander("🔍 Atau Cari Wilayah Secara Manual (Menggunakan Data wilayah
     kec_pilih = st.selectbox("Pilih Kecamatan:", options=daftar_kec)
     
     if st.button("Pantau Wilayah Manual Ini"):
-        # Cari koordinat kecamatan pilihan secara otomatis
         koordinat_manual = cari_koordinat_otomatis(kab_pilih, kec_pilih)
         if koordinat_manual["sukses"]:
-            st.experimental_set_query_params(
-                lat=str(koordinat_manual["lat"]), 
-                lon=str(koordinat_manual["lon"])
-            )
-            st.experimental_rerun()
+            # Update URL parameter dengan gaya modern standar Cloud 2026
+            st.query_params["lat"] = str(koordinat_manual["lat"])
+            st.query_params["lon"] = str(koordinat_manual["lon"])
+            st.rerun()
         else:
             st.error(f"Gagal mengunci koordinat kecamatan: {koordinat_manual['pesan']}")
 
@@ -140,6 +138,7 @@ if gps_lat and gps_lon:
     longitude = float(gps_lon)
     label_lokasi = "📍 Lokasi GPS Aktif Anda"
 else:
+    # Posisi default saat pertama kali aplikasi dibuka sebelum ada input/GPS (Prigen, Pasuruan)
     latitude = -7.6853
     longitude = 112.6264
     label_lokasi = "📍 Prigen, Pasuruan (Default Sistem)"
@@ -164,16 +163,35 @@ if info_cuaca["sukses"]:
     status_cuaca = info_cuaca["cuaca"]
     st.info(f"**Kondisi Udara Riil Saat Ini:** {status_cuaca}")
     
-    # Efek Alarm Petir Kilat & Getar HP Otomatis
+    # 🚨 LOGIKA PERINGATAN DARURAT SPESIFIK PEKERJA LAPANGAN & PETANI
     if "Petir" in status_cuaca or "Badai" in status_cuaca:
         st.markdown("""
             <style>
-            @keyframes kilat { 0%, 100% { background-color: #ff4b4b; } 50% { background-color: #ffe600; } }
-            .kotak-petir { padding: 15px; border-radius: 8px; color: black; font-weight: bold; animation: kilat 0.8s infinite; text-align: center; }
+            @keyframes kilat { 0%, 100% { background-color: #ff4b4b; box-shadow: 0 0 10px #ff0000; } 50% { background-color: #ffe600; box-shadow: 0 0 25px #ffe600; } }
+            .kotak-petir { padding: 18px; border-radius: 8px; color: black; font-weight: bold; animation: kilat 0.8s infinite; text-align: center; font-size: 16px; margin-bottom: 15px; }
             </style>
-            <div class="kotak-petir">⚡ ⚠️ PERINGATAN DARURAT PETIR DI AREA ANDA! ⚠️ ⚡</div>
+            <div class="kotak-petir">⚡ ⚠️ PERINGATAN DARURAT BADAI PETIR AKTIF! ⚠️ ⚡</div>
         """, unsafe_allow_html=True)
+        
+        st.error("""
+        **PANDUAN KESELAMATAN SEGERA:**
+        * **Bagi Petani:** Segera naik dari area sawah atau ladang terbuka. Cangkul dan sabit berbahan besi bisa memicu petir, taruh di gubuk dan segera amankan diri ke tempat aman.
+        * **Bagi Pekerja Bangunan:** Segera turun dari atap, scaffolding (steger), atau struktur rangka baja. Putus aliran listrik alat-alat konstruksi luar ruangan untuk menghindari lonjakan korsleting akibat induksi sambaran petir.
+        """)
+        # Trigger HP Bergetar Otomatis
         st.components.v1.html("<script>if(navigator.vibrate){navigator.vibrate([500,250,500]);}</script>", height=0)
+
+    elif "Hujan" in status_cuaca:
+        st.warning("""
+        ### 🌧️ Peringatan Hujan di Lokasi Anda
+        * **Bagi Petani:** Harap segera selamatkan jemuran hasil bumi (gabah, jagung, cengkeh) ke area teduh agar terhindar dari jamur.
+        * **Bagi Pekerja Bangunan:** Amankan tumpukan semen agar tidak basah, dialihkan sementara ke pengerjaan interior dalam ruangan.
+        """)
+    else:
+        st.success("""
+        ### 🟢 Kondisi Cuaca Sangat Bersahabat
+        * Sangat aman dan ideal untuk penjemuran komoditas panen maksimal, pengecoran proyek luar ruangan, serta aktivitas kerja di lapangan terbuka.
+        """)
 
     # 7. MAPS SATELIT RADAR BERGERAK
     st.subheader("📡 Radar Satelit Bergerak Menit Ini")
